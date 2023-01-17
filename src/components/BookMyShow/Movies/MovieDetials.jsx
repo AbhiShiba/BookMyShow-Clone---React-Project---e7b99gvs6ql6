@@ -1,0 +1,53 @@
+import React, { useEffect, useState } from "react";
+import { apiUrl } from "../../importent/api";
+import { FaStar } from "react-icons/fa";
+import apicalls from "../../utills/apicalls";
+
+export function MovieDetials(props) {
+  const [duration, SetDuration] = useState(null);
+  const url = `${apiUrl.base}movie/${props.movieDetils.detils.id}?api_key=${apiUrl.key}`;
+
+  useEffect(() => {
+    const getMovieDuration = async () => {
+      const res = await apicalls(url);
+      SetDuration(res.data.runtime);
+    };
+    getMovieDuration();
+  });
+
+  const checkTheStatus = () => {
+    props.stateUpLift2(props.movieDetils);
+  }
+
+  return (
+    <div className="movie-detils">
+      <div className="movie-styles">
+        <img
+          src={apiUrl.imageBase + props.movieDetils.detils.poster_path}
+          alt={props.movieDetils.detils.title}
+        />
+        <div className="movie-right-container">
+          <h3>{props.movieDetils.detils.title}</h3>
+          <div>
+            <FaStar /> {props.movieDetils.detils.vote_average}/10
+          </div>
+          <div>
+            <span>{duration} minutes</span>
+            {props.movieDetils.data.map((item, index) => {
+              return <span key={"span" + index}>{item.name}</span>;
+            })}
+          </div>
+          <p>{props.movieDetils.detils.overview}</p>
+          <p>
+            <span className="rupee">&#8377;</span>
+            {Math.floor(Math.random() * (300 - 250 + 1)) + 250}
+          </p>
+          <div className="buy-wishlist">
+            <button type="button" onClick={checkTheStatus}>Book Tickets</button>
+            <button type="button">Wishlist</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

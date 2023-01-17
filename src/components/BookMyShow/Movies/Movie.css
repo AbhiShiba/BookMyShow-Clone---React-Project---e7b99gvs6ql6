@@ -1,0 +1,68 @@
+.main-movie-card {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin: 10px;
+    width: 100%;
+}
+
+.movieCard {
+    /* border: 1px solid black; */
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 4px gray;
+}
+
+.movieStyleCard {
+    margin: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.movieStyleCard > h4 {
+    margin: 5px;
+}
+
+.imageCard {
+    width: 90%;
+    margin: 5px;
+}
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 10px;
+}
+
+.rating > p {
+    margin: 0;
+}
+
+.movie-container {
+    margin-left: 12rem;
+    /* width: 100%; */
+}
+
+
+.movie-styles {
+    display: flex;
+    margin: 5px;
+}
+
+span {
+    margin: 10px 5px;
+}
+
+.buy-wishlist > button {
+    margin: 20px 20px 20px 0;
+}
+
+.movie-styles > img {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+}
+
+.movieStyleCard > h4 {
+    font-size: 1rem;
+}

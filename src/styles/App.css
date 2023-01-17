@@ -1,0 +1,20 @@
+.genres-content {
+    display: flex;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.valdi {
+    margin: 30px 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.valdi > p {
+    font-size: 1.5rem;
+    margin: 10px;
+    height: 50px;
+}

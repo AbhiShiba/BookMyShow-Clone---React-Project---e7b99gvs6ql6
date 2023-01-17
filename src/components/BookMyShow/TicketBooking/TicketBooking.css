@@ -1,0 +1,40 @@
+.theater-screen > img {
+    width: 70%;
+    height: 15rem;
+    margin: 0;
+}
+
+.theater-screen {
+    display: flex;
+    justify-content: center;
+}
+
+.Booking-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+}
+
+.border-class > input {
+    height: 2rem;
+    width: 10rem;
+    outline: none;
+    border: none;
+}
+
+.select-theater {
+    height: 2rem;
+    width: 10rem;
+    /* padding: 0 20px; */
+    border: none;
+    outline: none;
+}
+
+.border-class {
+    border-bottom: 1px solid black;
+}
+
+.heading {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
