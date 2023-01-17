@@ -1,7 +1,7 @@
 .theater-screen > img {
     width: 70%;
-    height: 15rem;
-    margin: 0;
+    height: 3rem;
+    margin: 2rem 0;
 }
 
 .theater-screen {
@@ -37,4 +37,65 @@
 .heading {
     font-size: 1.1rem;
     font-weight: bold;
+}
+
+.btn-seat {
+    cursor: pointer;
+    margin: 30px;
+    width: 6rem;
+    height: 2rem;
+    background-color: rgb(233, 35, 68);
+    border: none;
+    border-radius: 15px;
+}
+
+.btn-seat:hover {
+    cursor: pointer;
+    margin: 30px;
+    width: 6rem;
+    height: 2rem;
+    background-color: rgb(233, 35, 68);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 8px 4px gray;
+}
+
+.seat-row {
+    display: flex;
+    margin: 1px;
+}
+
+.seats-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seat {
+    margin: 5px;
+    border: 1px solid black;
+    padding: 2px;
+    font-size: 0.7rem;
+    width: 20px;
+    height: 15px;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+}
+
+.seat:hover {
+    margin: 5px;
+    border: 1px solid black;
+    padding: 2px;
+    font-size: 0.7rem;
+    width: 20px;
+    height: 15px;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    box-shadow: 0 0 8px 4px lightblue;
+}
+
+.seatSelect-on {
+    background-color: aqua;
 }

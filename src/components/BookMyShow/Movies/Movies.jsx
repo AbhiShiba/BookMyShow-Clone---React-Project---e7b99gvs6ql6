@@ -41,8 +41,8 @@ export function Movies(props) {
     });
   };
 
-  const stateLift2 = (arg) => {
-    props.flagStatus(arg);
+  const stateLift2 = (arg,arg2) => {
+    props.flagStatus(arg,arg2);
   }
 
   return (

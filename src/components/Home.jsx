@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { createContext, useEffect, useReducer, useState } from "react";
 import "../styles/App.css";
 import { Genres } from "./BookMyShow/Genres/Genres";
 import { Movies } from "./BookMyShow/Movies/Movies";
@@ -8,18 +8,19 @@ import { apiUrl } from "./importent/api";
 import { Overlay } from "./OverLay/Overlay";
 import apicalls from "./utills/apicalls";
 import { Validation } from "./Validation";
-import { BrowserRouter, Routes, Route} from 'react-router'
+
+export const UserContex = createContext();
 
 export function Home() {
-
-    const [apiData, setApiData] = useState(null);
+  const [price, setPrice] = useState(null);
+  const [apiData, setApiData] = useState(null);
   const [playNowList, setPlayNowList] = useState(null);
   const [stateUp, setStateUp] = useState({
     seatData: null,
     flag: false,
   });
-  const [checkOverlay,setCheckOverlay] = useState(false);
-  const [loginStatus,setLoginStatus] = useState(false)
+  const [checkOverlay, setCheckOverlay] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(false);
   let loginChecking;
 
   useEffect(() => {
@@ -54,54 +55,63 @@ export function Home() {
 
   loginChecking = loginStatus;
 
-  const stateUpLift = (arg) => {
+  const stateUpLift = (arg, arg2) => {
     setStateUp({
-      stateUp : arg,
-      flag : true
-    })
-
-    if(!loginStatus){
+      stateUp: arg,
+      flag: true,
+    });
+    setPrice(arg2);
+    if (!loginStatus) {
       setCheckOverlay(true);
     }
-  }
-  
+  };
+
   const checkForLoginStatus = () => {
-    if(sessionStorage.getItem("login") !== null){
-        const data = JSON.parse(sessionStorage.getItem("login"));
-        setLoginStatus( data.status);
-  } else{
-    setLoginStatus(true);
-  }
-  }
+    if (sessionStorage.getItem("login") !== null) {
+      const data = JSON.parse(sessionStorage.getItem("login"));
+      setLoginStatus(data.status);
+    } else {
+      setLoginStatus(true);
+    }
+  };
 
   const overlayFlagCheck = () => {
     setCheckOverlay(false);
-  }
+  };
 
-  
   const loginFunction = () => {
-    if(sessionStorage.getItem("login") !== null){
-        const data = JSON.parse(sessionStorage.getItem("login"));
-        setLoginStatus( data.status);
-  }
-  }
-  useEffect(()=>{
-    loginFunction()
-  },[])
-// sessionStorage.clear()
+    if (sessionStorage.getItem("login") !== null) {
+      const data = JSON.parse(sessionStorage.getItem("login"));
+      setLoginStatus(data.status);
+    }
+  };
+  useEffect(() => {
+    loginFunction();
+  }, []);
+  // sessionStorage.clear()
   return (
-   <>
-   <NavBar checkForLoginStatus={checkForLoginStatus} />
-   { (loginStatus && stateUp.flag) ? <TicketBooking BookingData={stateUp} /> : <div className="genres-content">
-         <Genres heading="Genres" apiData={apiData} />
-         <Movies
-           heading="Now Playing"
-           imagePath={apiUrl.imageBase}
-           apiData={playNowList}
-           flagStatus = {stateUpLift}
-         />
-   </div>}
-   {checkOverlay && <Overlay functionCall={overlayFlagCheck} ><Validation /></Overlay>}
-   </>
-  )
+    <>
+      <NavBar checkForLoginStatus={checkForLoginStatus} />
+      <UserContex.Provider value={price}>
+        {loginStatus && stateUp.flag ? (
+          <TicketBooking BookingData={stateUp} />
+        ) : (
+          <div className="genres-content">
+            <Genres heading="Genres" apiData={apiData} />
+            <Movies
+              heading="Now Playing"
+              imagePath={apiUrl.imageBase}
+              apiData={playNowList}
+              flagStatus={stateUpLift}
+            />
+          </div>
+        )}
+      </UserContex.Provider>
+      {checkOverlay && (
+        <Overlay functionCall={overlayFlagCheck}>
+          <Validation />
+        </Overlay>
+      )}
+    </>
+  );
 }

@@ -1,0 +1,12 @@
+.summary-slip {
+    border: 1px solid black;
+}
+
+.eachTicket {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wraper-div {
+    margin: 10px;
+}

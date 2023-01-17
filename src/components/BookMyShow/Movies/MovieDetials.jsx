@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { apiUrl } from "../../importent/api";
 import { FaStar } from "react-icons/fa";
 import apicalls from "../../utills/apicalls";
 
+const UserContex = createContext();
+
 export function MovieDetials(props) {
   const [duration, SetDuration] = useState(null);
+  const [price,setPrice] = useState(Math.floor(Math.random() * (300 - 250 + 1)) + 250)
   const url = `${apiUrl.base}movie/${props.movieDetils.detils.id}?api_key=${apiUrl.key}`;
 
   useEffect(() => {
@@ -16,7 +19,7 @@ export function MovieDetials(props) {
   });
 
   const checkTheStatus = () => {
-    props.stateUpLift2(props.movieDetils);
+    props.stateUpLift2(props.movieDetils,price);
   }
 
   return (
@@ -40,7 +43,7 @@ export function MovieDetials(props) {
           <p>{props.movieDetils.detils.overview}</p>
           <p>
             <span className="rupee">&#8377;</span>
-            {Math.floor(Math.random() * (300 - 250 + 1)) + 250}
+            {price}
           </p>
           <div className="buy-wishlist">
             <button type="button" onClick={checkTheStatus}>Book Tickets</button>

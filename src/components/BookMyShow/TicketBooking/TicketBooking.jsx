@@ -1,9 +1,11 @@
 import React from "react";
 import { TheaterScreen } from "./TheaterScreen";
+import { TheaterSeats } from "./TheaterSeats";
 import "./TicketBooking.css";
 
 const theaterName = ["PVR Cinema", "Metro INOX Cinema", "Cinepolis"];
 const showTime = ["10:15", "12:45", "3:15", "5:45"];
+const theaterSeats = ["0","1","2","3","4","5","6","7","8","9"];
 
 export function TicketBooking(props) {
   console.log(props.BookingData);
@@ -41,6 +43,7 @@ export function TicketBooking(props) {
       </div>
       <div className="ticket">
         <TheaterScreen />
+        <div className="seats-section"><TheaterSeats Seats={theaterSeats} movieName={props.BookingData.stateUp.detils.title} /></div>
       </div>
     </div>
   );
