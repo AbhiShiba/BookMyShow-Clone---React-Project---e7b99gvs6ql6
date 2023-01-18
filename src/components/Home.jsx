@@ -41,16 +41,16 @@ export function Home() {
     genresList();
 
     const nowPlayingList = async () => {
-      if (localStorage.getItem("movie") === null) {
+      // if (localStorage.getItem("movie") === null) {
         const getData = await apicalls(
           `${apiUrl.base}${apiUrl.nowPlaying}?api_key=${apiUrl.key}&page=1`
         );
         localStorage.setItem("movie", JSON.stringify(getData.data.results));
         setPlayNowList(getData.data.results);
-      } else {
-        const currentData = localStorage.getItem("movie");
-        setPlayNowList(JSON.parse(currentData));
-      }
+      // } else {
+      //   const currentData = localStorage.getItem("movie");
+      //   setPlayNowList(JSON.parse(currentData));
+      // }
     };
     nowPlayingList();
   }, []);
