@@ -98,11 +98,9 @@ export function Home() {
       setMovieHeading(genre.name)
     }
     getByGenresID()
-    console.log(genre);
   }
 
   const apiCallForSearch = (search) => {
-    console.log(search);
     const searchMovieApiCall = async () => {
       const mavieName = await apicalls(`${apiUrl.base}search/movie?api_key=${apiUrl.key}&page=1&query=${search}`);
       setPlayNowList(mavieName.data.results);
@@ -112,7 +110,6 @@ export function Home() {
       searchMovieApiCall()
     }
   
-    // console.log(value)
   }
   // sessionStorage.clear()
   return (

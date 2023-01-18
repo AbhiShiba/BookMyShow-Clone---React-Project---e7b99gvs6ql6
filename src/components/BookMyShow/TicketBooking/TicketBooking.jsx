@@ -8,7 +8,7 @@ const showTime = ["10:15", "12:45", "3:15", "5:45"];
 const theaterSeats = ["0","1","2","3","4","5","6","7","8","9"];
 
 export function TicketBooking(props) {
-  console.log(props.BookingData);
+
   const options = (arr, name) => {
     return arr.map((item, index) => {
       return (

@@ -52,7 +52,6 @@ export function TheaterSeats(props) {
         name : props.movieName
     }
     sessionStorage.setItem('BookingDetails',JSON.stringify(ticketDetails))
-    // console.log(ticketDetails);
   }
 
   return (

@@ -7,7 +7,6 @@ export function UserInfo(props) {
   const checkForLoginOrSignUp = () => {
     setLoginOrSignUp(true);
   };
-  // console.log(props)
   const upLiftTheState = (arg) => {
     props.stateUpLisft(arg);
   };

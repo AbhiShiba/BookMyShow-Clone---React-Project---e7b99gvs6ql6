@@ -9,7 +9,7 @@ export function WishListCard(props) {
             return <span key={`span${index}`}>{item.name}</span>
         })
     }
-  console.log(props);
+
   return (
     <div className="wraper-card" key={`wraper${props.index}`}>
       <img

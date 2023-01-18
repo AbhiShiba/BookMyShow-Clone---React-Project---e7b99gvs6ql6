@@ -25,7 +25,6 @@ export function NavBar(props) {
   };
 
   const searchMovieBtn = () => {
-    console.log(movieName);
     setStyleIcon({
       fontSize: "1.5rem",
     });

@@ -2,7 +2,6 @@ import React from "react";
 import "./CheckOut.css";
 
 export function Summary(props) {
-  console.log(props);
   const totalTicketPrice =
     Number(props.BookingDetails.price) * Number(props.BookingDetails.noSeats);
   const tax =  (totalTicketPrice * 0.0175).toFixed(2);

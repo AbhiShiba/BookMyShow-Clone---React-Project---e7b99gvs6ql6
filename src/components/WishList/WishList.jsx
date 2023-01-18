@@ -22,6 +22,5 @@ export function WishList() {
       });
     }
   };
-  console.log(showWishList);
   return <div className="wrapper-wishlist">{createWishList(showWishList)}</div>;
 }
