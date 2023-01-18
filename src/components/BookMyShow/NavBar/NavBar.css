@@ -21,6 +21,7 @@
 
 .giveSameStyle {
     margin: 0 1.5rem;
+    cursor: pointer;
 }
 
 .logo {

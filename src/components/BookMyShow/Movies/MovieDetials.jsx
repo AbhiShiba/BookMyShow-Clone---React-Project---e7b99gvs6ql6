@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import { apiUrl } from "../../importent/api";
 import { FaStar } from "react-icons/fa";
 import apicalls from "../../utills/apicalls";
+import noImage from '../../utills/images/no-image.png'
 
 
 export function MovieDetials(props) {
@@ -48,7 +49,7 @@ export function MovieDetials(props) {
     <div className="movie-detils">
       <div className="movie-styles">
         <img
-          src={apiUrl.imageBase + props.movieDetils.detils.poster_path}
+          src={props.movieDetils.detils.poster_path===null? noImage :apiUrl.imageBase + props.movieDetils.detils.poster_path}
           alt={props.movieDetils.detils.title}
         />
         <div className="movie-right-container">
