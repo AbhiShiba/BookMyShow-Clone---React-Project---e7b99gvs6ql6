@@ -1,7 +1,49 @@
-import React from 'react'
+import React from "react";
 
 export function Payment() {
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
   return (
-    <div>Payment</div>
-  )
+    <div className="summary-slip">
+      <h2>Payment</h2>
+      <form onSubmit={submitHandler}>
+        <div className="input-fields">
+          <label htmlFor="first-name">First Name</label>
+          <input className="inputs" id="first-name" type="text" />
+          <label htmlFor="last-name">Last Name</label>
+          <input className="inputs" id="last-name" type="text" />
+          <label htmlFor="e-mail">E-mail</label>
+          <input className="inputs" id="e-mail" type="text" />
+        </div>
+        <div className="input-fields">
+          <input type="radio" id="Credit-card" />
+          <label htmlFor="Credit-card">Credit card</label>
+          <input type="radio" id="Debit-card" />
+          <label htmlFor="Debit-card">Debit card</label>
+          <input type="radio" id="UPI" />
+          <label htmlFor="UPI">UPI</label>
+        </div>
+        <div className="card-details">
+          <div className="card-name">
+            <label htmlFor="card-holder">Card holder Name</label>
+            <input className="inputs" id="card-holder" type="text" />
+          </div>
+          <div className="card-name">
+            <label htmlFor="exp-date">Expiration</label>
+            <input className="inputs" id="exp-date" type="text" />
+          </div>
+          <div className="card-name">
+            <label htmlFor="cvv">CVV</label>
+            <input className="inputs" id="cvv" type="text" />
+          </div>
+        </div>
+        <div className="form-checkout">
+          <button className="checkout-btn" type="submit">
+            Proceed to pay
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 }

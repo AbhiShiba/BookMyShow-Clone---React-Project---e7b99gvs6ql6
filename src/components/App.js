@@ -7,12 +7,12 @@ import { CheckOut } from "./CheckOut/CheckOut";
 function App() {
   return (
     <div id="main">
-    <BrowserRouter >
+    <HashRouter >
       <Routes>
         <Route path="/" element={<Home />}  />
         <Route path="/checkout" element={<CheckOut/>} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
     </div>
   );
 }

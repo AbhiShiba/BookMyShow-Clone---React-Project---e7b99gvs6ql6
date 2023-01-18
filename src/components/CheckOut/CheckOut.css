@@ -1,5 +1,6 @@
 .summary-slip {
     border: 1px solid black;
+    height: max-content;
 }
 
 .eachTicket {
@@ -9,4 +10,53 @@
 
 .wraper-div {
     margin: 10px;
+}
+
+.card-name {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.wraper-checkout {
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem 10rem;
+}
+
+.checkout-heading {
+    text-align: center;
+}
+
+.check-out {
+    width: 100%;
+}
+
+.input-fields {
+    margin: 5px;
+}
+
+.input-fields > label {
+    margin: 5px;
+}
+
+.inputs {
+    box-shadow: 0 0 6px 6px rgb(197, 189, 189);
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    margin: 10px 0;
+    height: 1.5rem;
+}
+
+.checkout-btn {
+    width: 90%;
+    text-align: center;
+}
+
+.form-checkout {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    width: 100%;
 }
