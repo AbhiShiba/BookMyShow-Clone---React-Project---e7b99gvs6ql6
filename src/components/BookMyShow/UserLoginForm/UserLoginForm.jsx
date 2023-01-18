@@ -8,6 +8,7 @@ export function UserLoginForm(props) {
   const [password, setPassword] = useState("");
   const [userFlag, setUserFlag] = useState(false);
   const [passwordFlag, setPasswordFlag] = useState(false);
+  const [warningMsg,setWarningMsg] = useState(false)
   let loginInfo;
 
   loginInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -16,6 +17,7 @@ export function UserLoginForm(props) {
     e.preventDefault();
     setUserFlag(false);
     setPassword(false);
+    setWarningMsg(false);
 
     if (userName === "") {
       setUserFlag(true);
@@ -44,7 +46,8 @@ export function UserLoginForm(props) {
       ) {
         props.stateUpLisft(data.userName);
       } else {
-        console.log("no data");
+        setWarningMsg(true);
+        return
       }
     }
     props.functionCall();
@@ -64,6 +67,7 @@ export function UserLoginForm(props) {
         <BsShieldLock style={{ fontSize: "2rem" }} />
       </div>
       <h3 className="user-heading">Login</h3>
+      {warningMsg && <div className="warning">Username or Password Matching</div>}
       <input
         type="text"
         placeholder="User Name *"
