@@ -2,6 +2,16 @@ li {
     list-style: none;
     font-size: 1.2rem;
     margin: 10px;
+    cursor: pointer;
+}
+
+li:hover {
+    list-style: none;
+    font-size: 1.2rem;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 8px 4px lightblue;
+    background-color: lightblue;
 }
 
 ul {

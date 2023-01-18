@@ -1,6 +1,7 @@
 import React from "react";
 import { apiUrl } from "../../importent/api";
 import { FaStar } from "react-icons/fa";
+import noImage from '../../utills/images/no-image.png'
 
 export function MovieCard({ item, index }) {
   return (
@@ -8,7 +9,7 @@ export function MovieCard({ item, index }) {
       <div className="movieStyleCard">
         <img
           className="imageCard"
-          src={apiUrl.imageBase + item.poster_path}
+          src={item.poster_path === null ? noImage :apiUrl.imageBase + item.poster_path}
           alt={item.title}
           key={"image" + index}
         />

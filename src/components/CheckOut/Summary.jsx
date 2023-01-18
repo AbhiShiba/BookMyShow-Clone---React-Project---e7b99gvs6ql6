@@ -33,7 +33,7 @@ export function Summary(props) {
         </div>
         <div className="eachTicket">
           <span>Sub total</span>
-          <span>{Number(totalTicketPrice) + Number(tax)}</span>
+          <span>&#8377; {Number(totalTicketPrice) + Number(tax)}</span>
         </div>
       </div>
     </div>

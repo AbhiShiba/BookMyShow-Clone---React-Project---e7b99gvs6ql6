@@ -2,29 +2,26 @@ import React, { useState } from "react";
 import "../NavBar/NavBar.css";
 import { FaRegHeart, FaUser } from "react-icons/fa";
 import pngwing from "../../utills/images/pngwing.com.png";
-import {Overlay} from '../../OverLay/Overlay'
+import { Overlay } from "../../OverLay/Overlay";
 import { UserInfo } from "../UserLoginForm/UserInfo";
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 export function NavBar(props) {
   const [movieName, setMovieName] = useState("");
   const [styleIcon, setStyleIcon] = useState({ fontSize: "1.5rem" });
-  const [login,setLogin] = useState(false);
-  // const [userName,setUserName] = useState({
-  //   status : false,
-  //   name : "Sign Up"
-  // })
+  const [login, setLogin] = useState(false);
 
   let userName = {
-      status : false,
-      name : "Sign Up"
-    }
+    status: false,
+    name: "Sign Up",
+  };
 
   const searchTheMovieName = (e) => {
     setMovieName(e.target.value);
     setStyleIcon({
       fontSize: "1.5rem",
     });
+    props.searchMovie(e.target.value);
   };
 
   const searchMovieBtn = () => {
@@ -32,6 +29,7 @@ export function NavBar(props) {
     setStyleIcon({
       fontSize: "1.5rem",
     });
+    props.searchMovie(movieName);
     setMovieName("");
   };
 
@@ -45,38 +43,45 @@ export function NavBar(props) {
   const loginStatusCheck = (e) => {
     e.stopPropagation();
     setLogin(true);
-  }
+  };
 
   const signUpCheck = () => {
     setLogin(false);
-  }
+  };
 
-  if(sessionStorage.getItem('login') !== null){
-    const loginSession = JSON.parse(sessionStorage.getItem('login'));
-   userName = {
-      status : loginSession.status,
-      name : loginSession.name
-    }
+  if (sessionStorage.getItem("login") !== null) {
+    const loginSession = JSON.parse(sessionStorage.getItem("login"));
+    userName = {
+      status: loginSession.status,
+      name: loginSession.name,
+    };
   }
 
   const stateUpLisft = (arg) => {
     userName = {
-      status : true,
-      name : arg,
-    }
-    sessionStorage.setItem("login",JSON.stringify(userName));
+      status: true,
+      name: arg,
+    };
+    sessionStorage.setItem("login", JSON.stringify(userName));
     props.checkForLoginStatus();
-  }
+  };
 
   const clickOnLogo = (e) => {
     e.stopPropagation();
-  }
+  };
 
   return (
     <div className="styleNavBar">
       <div id="nav-bar">
         <div className="logo">
-        <NavLink to="/"><img className="linkLogo" src={pngwing} alt="name" onClick={clickOnLogo} /></NavLink>
+          <NavLink to="/">
+            <img
+              className="linkLogo"
+              src={pngwing}
+              alt="name"
+              onClick={clickOnLogo}
+            />
+          </NavLink>
         </div>
         <div className="right-side">
           <div className="input-container giveSameStyle">
@@ -94,16 +99,24 @@ export function NavBar(props) {
               Search
             </button>
           </div>
-          <div
-            className="favorite giveSameStyle"
-            onClick={changeStyleAfterClick}
-          >
-            <FaRegHeart style={styleIcon} />
-          </div>
+          <NavLink to="/wishlist">
+            <div
+              className="favorite giveSameStyle"
+              onClick={changeStyleAfterClick}
+            >
+              <FaRegHeart style={styleIcon} />
+            </div>
+          </NavLink>
+
           <div className="loginInfo giveSameStyle" onClick={loginStatusCheck}>
-            {login && <Overlay functionCall={signUpCheck}>
-            <UserInfo functionCall={signUpCheck} stateUpLisft={stateUpLisft} />
-            </Overlay>}
+            {login && (
+              <Overlay functionCall={signUpCheck}>
+                <UserInfo
+                  functionCall={signUpCheck}
+                  stateUpLisft={stateUpLisft}
+                />
+              </Overlay>
+            )}
             <FaUser /> {userName.name}
           </div>
         </div>

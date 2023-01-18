@@ -3,7 +3,6 @@ import { apiUrl } from "../../importent/api";
 import { FaStar } from "react-icons/fa";
 import apicalls from "../../utills/apicalls";
 
-const UserContex = createContext();
 
 export function MovieDetials(props) {
   const [duration, SetDuration] = useState(null);
@@ -20,6 +19,29 @@ export function MovieDetials(props) {
 
   const checkTheStatus = () => {
     props.stateUpLift2(props.movieDetils,price);
+  }
+  let wishList;
+  if(localStorage.getItem('wishlist') === null){
+    wishList = [];
+  } else {
+    wishList = JSON.parse(localStorage.getItem('wishlist'));
+  }
+
+  const addToWishList = () => {
+    // wishList = JSON.(localStorage.getItem('wishlist'));
+    
+    if (
+      wishList.some(
+        (info) =>
+          info.detils.id === props.movieDetils.detils.id
+      )
+    ) {
+      // setInfoExist(true);
+      return;
+    } else {
+      wishList.push(props.movieDetils);
+      localStorage.setItem("wishlist", JSON.stringify(wishList));
+    }
   }
 
   return (
@@ -47,7 +69,7 @@ export function MovieDetials(props) {
           </p>
           <div className="buy-wishlist">
             <button type="button" onClick={checkTheStatus}>Book Tickets</button>
-            <button type="button">Wishlist</button>
+            <button type="button" onClick={addToWishList}>Wishlist</button>
           </div>
         </div>
       </div>
