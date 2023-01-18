@@ -5,8 +5,8 @@ import { FaStar } from "react-icons/fa";
 
 export function WishListCard(props) {
     const createGenres = (arr) => {
-        arr.map((item,index)=> {
-            return <span key={`span${index}`}>{item}</span>
+       return arr.map((item,index)=> {
+            return <span key={`span${index}`}>{item.name}</span>
         })
     }
   console.log(props);
