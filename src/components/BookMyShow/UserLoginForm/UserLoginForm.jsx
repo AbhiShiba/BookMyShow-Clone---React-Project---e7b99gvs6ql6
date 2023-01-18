@@ -67,7 +67,7 @@ export function UserLoginForm(props) {
         <BsShieldLock style={{ fontSize: "2rem" }} />
       </div>
       <h3 className="user-heading">Login</h3>
-      {warningMsg && <div className="warning">Username or Password Matching</div>}
+      {warningMsg && <div className="warning">Username or Password Not Matching</div>}
       <input
         type="text"
         placeholder="User Name *"
