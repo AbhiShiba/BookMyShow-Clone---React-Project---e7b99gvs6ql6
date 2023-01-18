@@ -8,13 +8,21 @@ export function Payment() {
     <div className="summary-slip">
       <h2>Payment</h2>
       <form onSubmit={submitHandler}>
-        <div className="input-fields">
-          <label htmlFor="first-name">First Name</label>
-          <input className="inputs" id="first-name" type="text" />
-          <label htmlFor="last-name">Last Name</label>
-          <input className="inputs" id="last-name" type="text" />
-          <label htmlFor="e-mail">E-mail</label>
-          <input className="inputs" id="e-mail" type="text" />
+        <div className="input-fields user-name-email">
+          <div className="input1">
+            <label htmlFor="first-name">First Name</label>
+            <input className="inputs" id="first-name" type="text" />
+          </div>
+
+          <div className="input1">
+            <label htmlFor="last-name">Last Name</label>
+            <input className="inputs" id="last-name" type="text" />
+          </div>
+
+          <div className="input1">
+            <label htmlFor="e-mail">E-mail</label>
+            <input className="inputs" id="e-mail" type="text" />
+          </div>
         </div>
         <div className="input-fields">
           <input type="radio" id="Credit-card" />
