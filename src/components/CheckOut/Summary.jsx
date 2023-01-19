@@ -15,6 +15,10 @@ export function Summary(props) {
           <span>&#8377; {props.BookingDetails.price}</span>
         </div>
         <div className="eachTicket">
+          <span>Date</span>
+          <span>{props.BookingDetails.BookingDate}</span>
+        </div>
+        <div className="eachTicket">
           <span>Number of tickets</span>
           <span>{props.BookingDetails.noSeats}</span>
         </div>

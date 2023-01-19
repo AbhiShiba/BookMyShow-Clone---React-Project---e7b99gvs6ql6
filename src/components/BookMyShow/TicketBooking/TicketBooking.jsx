@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Overlay } from "../../OverLay/Overlay";
 import { TheaterScreen } from "./TheaterScreen";
 import { TheaterSeats } from "./TheaterSeats";
 import "./TicketBooking.css";
@@ -9,6 +10,9 @@ const theaterSeats = ["0","1","2","3","4","5","6","7","8","9"];
 
 export function TicketBooking(props) {
 
+  const [date,setDate] = useState(null);
+  
+
   const options = (arr, name) => {
     return arr.map((item, index) => {
       return (
@@ -18,6 +22,12 @@ export function TicketBooking(props) {
       );
     });
   };
+
+  const dateOfBooking = (e) => {
+    console.log(e.target.value)
+    setDate(e.target.value);
+  }
+
   return (
     <div className="book">
       <h3>Book Ticket</h3>
@@ -33,7 +43,7 @@ export function TicketBooking(props) {
           </select>
         </div>
         <div className="border-class">
-          <input type="date" />
+          <input type="date" onChange={dateOfBooking} />
         </div>
         <div className="border-class">
           <select className="select-theater">
@@ -43,7 +53,7 @@ export function TicketBooking(props) {
       </div>
       <div className="ticket">
         <TheaterScreen />
-        <div className="seats-section"><TheaterSeats Seats={theaterSeats} movieName={props.BookingData.stateUp.detils.title} /></div>
+        <div className="seats-section"><TheaterSeats BookingDate={date} Seats={theaterSeats} movieName={props.BookingData.stateUp.detils.title} /></div>
       </div>
     </div>
   );

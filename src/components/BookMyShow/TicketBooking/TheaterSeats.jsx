@@ -2,9 +2,11 @@ import React, { useContext, useState } from "react";
 import "./TicketBooking.css";
 import { UserContex } from "../../Home";
 import { NavLink } from "react-router-dom"
+import { Overlay } from "../../OverLay/Overlay";
 
 export function TheaterSeats(props) {
     const price = useContext(UserContex)
+    const [flag,setFlag] = useState(false);
   let styleSeat = props.Seats.map((item, index, arr) => {
     return arr.map((c, i) => {
       return {
@@ -45,13 +47,24 @@ export function TheaterSeats(props) {
   };
 
   const submitSeatSelected = () => {
+    console.log(typeof(props.BookingDate))
+    // if(props.BookingDate === null){
+    //   setFlag(true);
+    //   return;
+    // }
+
     const ticketDetails = {
         seats : seatState,
         noSeats : seatState.length,
         price,
-        name : props.movieName
+        name : props.movieName,
+        BookingDate : props.BookingDate
     }
     sessionStorage.setItem('BookingDetails',JSON.stringify(ticketDetails))
+}
+
+  const overlayFlagCheck = () => {
+    setFlag(false);
   }
 
   return (
@@ -67,11 +80,10 @@ export function TheaterSeats(props) {
       <div className="seat-row">{seatsSection(props.Seats, 7)}</div>
       <div className="seat-row">{seatsSection(props.Seats, 8)}</div>
       <div className="seat-row">{seatsSection(props.Seats, 9)}</div>
-      <NavLink to="/checkout" >
+      <NavLink to="/checkout">
       <button className="btn-seat" onClick={submitSeatSelected}>Submit</button>
       </NavLink>
-    </div>
-    
+      </div>
     </>
   );
 }

@@ -98,25 +98,27 @@ export function NavBar(props) {
               Search
             </button>
           </div>
-          <NavLink to="/wishlist">
-            <div
-              className="favorite giveSameStyle"
-              onClick={changeStyleAfterClick}
-            >
-              <FaRegHeart style={styleIcon} />
-            </div>
-          </NavLink>
+          <div className="login-wraper">
+            <NavLink to="/wishlist">
+              <div
+                className="favorite giveSameStyle"
+                onClick={changeStyleAfterClick}
+              >
+                <FaRegHeart style={styleIcon} />
+              </div>
+            </NavLink>
 
-          <div className="loginInfo giveSameStyle" onClick={loginStatusCheck}>
-            {login && (
-              <Overlay functionCall={signUpCheck}>
-                <UserInfo
-                  functionCall={signUpCheck}
-                  stateUpLisft={stateUpLisft}
-                />
-              </Overlay>
-            )}
-            <FaUser /> {userName.name}
+            <div className="loginInfo giveSameStyle" onClick={loginStatusCheck}>
+              {login && (
+                <Overlay functionCall={signUpCheck}>
+                  <UserInfo
+                    functionCall={signUpCheck}
+                    stateUpLisft={stateUpLisft}
+                  />
+                </Overlay>
+              )}
+              <FaUser /> {userName.name}
+            </div>
           </div>
         </div>
       </div>
