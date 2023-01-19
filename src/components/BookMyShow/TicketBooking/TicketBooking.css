@@ -99,3 +99,40 @@
 .seatSelect-on {
     background-color: aqua;
 }
+
+@media only screen and (max-width:768px) {
+    .Booking-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 20px;
+    }
+
+    .border-class {
+        border: none;
+    }
+
+    .select-theater {
+        width: 90%;
+    }
+
+    .border-class > input {
+        width: 90%;;
+    }
+}
+
+@media only screen and (max-width:280px) {
+    .seat {
+        margin: 1px;
+        font-size: 0.5rem;
+        width: 18px;
+        height: 18px;
+    }
+
+    .seat:hover {
+        margin: 1px;
+        font-size: 0.5rem;
+        width: 18px;
+        height: 18px;
+    }
+}

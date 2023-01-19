@@ -93,11 +93,53 @@ span {
     .movieStyleCard {
         margin: 0px;
     }
+
+    .movie-styles > img {
+        width: 150px;
+        height: 150px;
+        margin: 1px;
+    }
+
+    .movie-detils {
+        width: 20rem
+    }
+
+    .movie-styles {
+        flex-wrap: wrap;
+    }
+
 }
 
 @media only screen and (max-width:280px) {
     .main-movie-card {
         grid-template-columns: repeat(1,1fr);
+    }
+
+    .movie-styles > img {
+        width: 100px;
+        height: 150px;
+        margin: 1px;
+    }
+
+    .movie-detils {
+        width: 16rem
+    }
+
+    .movie-styles {
+        flex-wrap: wrap;
+    }
+    .movie-right-container > p {
+        font-size: 1rem;
+        width: 15rem;
+    }
+
+    .movie-card-text {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    span {
+        margin: 1px 2px;
     }
 }
 

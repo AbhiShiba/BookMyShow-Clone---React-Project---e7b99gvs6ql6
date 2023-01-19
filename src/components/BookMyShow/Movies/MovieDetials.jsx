@@ -57,7 +57,7 @@ export function MovieDetials(props) {
           <div>
             <FaStar /> {props.movieDetils.detils.vote_average}/10
           </div>
-          <div>
+          <div className="movie-card-text">
             <span>{duration} minutes</span>
             {props.movieDetils.data.map((item, index) => {
               return <span key={"span" + index}>{item.name}</span>;

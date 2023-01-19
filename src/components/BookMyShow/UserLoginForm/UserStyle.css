@@ -56,3 +56,28 @@
     font-size: 0.8rem;
     color: rgb(255, 50, 50);
 }
+
+@media only screen and (max-width:768px) {
+    .login-form > input {
+        margin: 10px;
+        width: 18rem;
+    }
+
+    .login-form > button {
+        margin: 10px;
+        width: 19rem;
+    }
+}
+
+@media only screen and (max-width:280px) {
+    .login-form > input {
+        margin: 5px;
+        width: 10rem;
+        height: 1.5rem;
+    }
+
+    .login-form > button {
+        margin: 10px;
+        width: 10rem;
+    }
+}
