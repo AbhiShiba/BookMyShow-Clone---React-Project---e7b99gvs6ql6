@@ -9,13 +9,15 @@ import { WishList } from "./WishList/WishList";
 function App() {
   return (
     <div id="main">
-    <BrowserRouter >
+    {/* <BrowserRouter > */}
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />}  />
         <Route path="/checkout" element={<CheckOut/>} />
         <Route path="/wishlist" element={<><NavBar/><WishList/></>} />
       </Routes>
-    </BrowserRouter>
+      </HashRouter>
+    {/* </BrowserRouter> */}
     </div>
   );
 }
